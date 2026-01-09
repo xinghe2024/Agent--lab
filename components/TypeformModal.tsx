@@ -63,8 +63,8 @@ const TypeformModal: React.FC<TypeformModalProps> = ({ isOpen, onClose }) => {
           height="100%"
           frameBorder="0"
           allow="camera; microphone; autoplay; encrypted-media;"
-          // REPLACE THIS URL WITH YOUR ACTUAL TYPEFORM URL
-          src="https://form.typeform.com/to/MdM7jX" 
+          // Updated with the correct Typeform ID provided by the user
+          src="https://form.typeform.com/to/h2wreFd6" 
           onLoad={() => setIsLoaded(true)}
           className={`w-full h-full transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         ></iframe>
