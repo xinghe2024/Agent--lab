@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
+import WorkflowSection from './components/WorkflowSection';
 import MissionSection from './components/MissionSection';
 import TeamSection from './components/TeamSection';
 import WaitlistSection from './components/WaitlistSection';
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <main className="flex-grow">
         <Hero onCtaClick={openTypeform} />
         <ProblemSection />
+        <WorkflowSection />
         <MissionSection />
         <TeamSection />
         <WaitlistSection onCtaClick={openTypeform} />

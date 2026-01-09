@@ -18,7 +18,8 @@ const ProblemSection: React.FC = () => {
     {
       icon: <BrainCircuit className="h-8 w-8 text-white" />,
       title: "AI That Actually Works",
-      text: "ChatGPT creates generic content. You need an AI that integrates with your CRM and acts like a trained Operations Manager.",
+      // Updated text to emphasize Proactive vs Reactive (ChatGPT)
+      text: "ChatGPT waits for your prompts. You need an AI that proactively works in your CRM while you sleep, acting like a trained Operations Manager.",
       gradient: "from-electric-500 to-blue-600"
     }
   ];

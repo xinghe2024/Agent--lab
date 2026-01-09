@@ -22,7 +22,8 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
         
         <div className="inline-flex items-center px-3 py-1 rounded-full border border-electric-200 bg-electric-50/50 backdrop-blur-sm mb-8 animate-[fadeInUp_0.8s_ease-out_forwards]">
             <Sparkles className="w-4 h-4 text-electric-600 mr-2" />
-            <span className="text-sm font-medium text-electric-800">Recruiting: The "Solo-Scaler" Cohort</span>
+            {/* Updated text to sound less like brokerage recruiting and more like an exclusive tech beta */}
+            <span className="text-sm font-medium text-electric-800">Accepting: Founding Member Applications</span>
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-navy-900 mb-8 max-w-5xl mx-auto animate-[fadeInUp_0.8s_ease-out_0.2s_forwards] opacity-0">
