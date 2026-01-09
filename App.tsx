@@ -6,37 +6,25 @@ import MissionSection from './components/MissionSection';
 import TeamSection from './components/TeamSection';
 import WaitlistSection from './components/WaitlistSection';
 import Footer from './components/Footer';
-// Fix: Use namespace import to handle CommonJS export compatibility in Vite
-import * as typeformEmbed from '@typeform/embed';
 
 const App: React.FC = () => {
   const waitlistRef = useRef<HTMLDivElement>(null);
-  // Store the popup instance to avoid recreating it on every click
-  const popupRef = useRef<any>(null);
 
-  // Function to open the Typeform modal
-  const openTypeform = () => {
-    if (!popupRef.current) {
-      // Create the popup only once using the namespace import
-      popupRef.current = typeformEmbed.createPopup('h2wreFd6', {
-        opacity: 95,
-        hideHeaders: true,
-        hideFooter: true,
-      });
+  const scrollToWaitlist = () => {
+    if (waitlistRef.current) {
+      waitlistRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-    popupRef.current.toggle();
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
-        <Hero onCtaClick={openTypeform} />
+        <Hero onCtaClick={scrollToWaitlist} />
         <ProblemSection />
         <MissionSection />
         <TeamSection />
-        {/* We pass the same open handler to the WaitlistSection button */}
-        <WaitlistSection ref={waitlistRef} onCtaClick={openTypeform} />
+        <WaitlistSection ref={waitlistRef} />
       </main>
       <Footer />
     </div>

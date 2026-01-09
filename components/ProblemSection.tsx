@@ -1,24 +1,24 @@
 import React from 'react';
-import { UserX, SmartphoneNfc, ShieldCheck } from 'lucide-react';
+import { TrendingUp, Users, BrainCircuit } from 'lucide-react';
 
 const ProblemSection: React.FC = () => {
   const cards = [
     {
-      icon: <UserX className="h-8 w-8 text-white" />,
-      title: "Generic AI Lacks Context",
-      text: "ChatGPT doesn't know your market, your clients, or your voice. You spend more time editing the output than it took to write it.",
+      icon: <TrendingUp className="h-8 w-8 text-white" />,
+      title: "The Production Plateau",
+      text: "You're stuck at your personal capacity limit not because you can't sell, but because you're buried in paperwork and scheduling.",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      icon: <SmartphoneNfc className="h-8 w-8 text-white" />,
-      title: "No New App to Learn",
-      text: "Stop downloading apps you'll never open. Our tools work silently in the background via SMS, Email, and Follow Up Boss.",
+      icon: <Users className="h-8 w-8 text-white" />,
+      title: "The Hiring Dilemma",
+      text: "Hiring a human assistant means lower margins, management headaches, and months of training. It's a heavy burden.",
       gradient: "from-violet-500 to-purple-500"
     },
     {
-      icon: <ShieldCheck className="h-8 w-8 text-white" />,
-      title: "Trust & Precision",
-      text: "Real estate is high-stakes. One 'hallucination' can cost a commission. We prioritize accuracy over creativity.",
+      icon: <BrainCircuit className="h-8 w-8 text-white" />,
+      title: "AI That Actually Works",
+      text: "ChatGPT creates generic content. You need an AI that integrates with your CRM and acts like a trained Operations Manager.",
       gradient: "from-electric-500 to-blue-600"
     }
   ];
@@ -30,8 +30,11 @@ const ProblemSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">Why Agents Are Burned Out on "AI Tools"</h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Most tech companies build <span className="italic">for</span> agents without understanding the chaos of your daily life.</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">The "Successful Solo" Trap</h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            To grow beyond your current limits, you usually have to hire a team and split your commission. <br />
+            <span className="font-semibold text-electric-600">We are fixing that equation.</span>
+          </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">

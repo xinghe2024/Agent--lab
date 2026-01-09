@@ -1,77 +1,84 @@
-import React, { forwardRef } from 'react';
-import { Check, Sparkles, CreditCard, Lock, ArrowRight, ClipboardCheck } from 'lucide-react';
+import React, { forwardRef, useState } from 'react';
+import { Check, Loader2 } from 'lucide-react';
 
-interface WaitlistSectionProps {
-    onCtaClick: () => void;
-}
+const WaitlistSection = forwardRef<HTMLDivElement>((props, ref) => {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-const WaitlistSection = forwardRef<HTMLDivElement, WaitlistSectionProps>(({ onCtaClick }, ref) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setLoading(true);
+    // Simulate API call
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      setEmail('');
+    }, 1200);
+  };
+
   return (
-    <section ref={ref} className="py-24 bg-slate-50 relative overflow-hidden flex flex-col items-center justify-center">
-      {/* Dark Backdrop for Contrast */}
-      <div className="absolute inset-0 bg-navy-950 -z-20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-navy-800 via-navy-950 to-navy-950 -z-10"></div>
-      
-      {/* Gold Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <section ref={ref} className="py-24 bg-white border-t border-gray-100 relative overflow-hidden">
+      {/* Decorative Blur */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-electric-500/5 blur-[100px] -z-10"></div>
 
-      <div className="max-w-4xl w-full px-4 sm:px-6 relative z-10">
-        
-        <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
-              Claim Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">Founding Advisor</span> Status
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              This isn't just a waitlist. It's a seat at the table. <br/>
-              Secure lifetime access to the Agent Efficiency Lab's pilot program.
-            </p>
-        </div>
+      <div className="max-w-xl mx-auto px-4 sm:px-6 text-center relative z-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 mb-4">Secure Your Founding Spot</h2>
+        <p className="text-lg text-gray-600 mb-10">
+          We are limiting the initial research cohort to <span className="font-bold text-navy-900">50 Active Agents</span> to ensure direct access to our engineering team.
+        </p>
 
-        <div className="flex justify-center">
-            {/* Black Gold Card Design */}
-            <div className="relative group w-full max-w-md bg-black rounded-3xl p-1 border border-gold-500/30 shadow-[0_0_50px_-12px_rgba(245,158,11,0.3)] hover:shadow-[0_0_70px_-12px_rgba(245,158,11,0.5)] transition-all duration-500">
-                
-                {/* Card Shimmer Effect */}
-                <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                    <div className="absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-10 animate-card-shine" />
-                </div>
-
-                <div className="relative h-full bg-[#0B0F17] rounded-[20px] p-8 flex flex-col items-center text-center overflow-hidden">
-                    {/* Noise Texture */}
-                    <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`}}></div>
-                    
-                    <div className="mb-6 p-3 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-500 shadow-lg shadow-gold-500/10">
-                        <ClipboardCheck size={32} />
-                    </div>
-
-                    <div className="w-full relative z-10">
-                        <h3 className="text-xl font-semibold text-white mb-2">Application Required</h3>
-                        <p className="text-gray-500 text-sm mb-8">
-                            We are selecting 50 agents for the pilot.<br/>
-                            Complete the brief survey to qualify.
-                        </p>
-                        
-                        <button 
-                            onClick={onCtaClick}
-                            className={`group w-full py-4 rounded-xl font-bold text-navy-950 transition-all duration-300 shadow-[0_0_20px_-5px_rgba(245,158,11,0.4)]
-                                bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:scale-[1.02] hover:shadow-gold-500/40 flex items-center justify-center gap-2
-                            `}
-                        >
-                            Start Application
-                            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                        </button>
-                        
-                        <div className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-500">
-                            <Lock size={12} />
-                            <span>Takes less than 2 minutes</span>
-                        </div>
-                    </div>
-                </div>
+        {submitted ? (
+          <div className="bg-green-50 border border-green-200 rounded-2xl p-8 flex flex-col items-center animate-[fadeInUp_0.5s_ease-out_forwards]">
+            <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+              <Check className="h-8 w-8 text-green-600" strokeWidth={3} />
             </div>
-        </div>
+            <h3 className="text-2xl font-bold text-green-800 mb-2">Application Received!</h3>
+            <p className="text-green-700">We will review your profile and contact qualified advisors within 48 hours.</p>
+            <button 
+              onClick={() => setSubmitted(false)}
+              className="mt-6 text-sm font-medium text-green-700 hover:text-green-800 transition-colors"
+            >
+              Register another email
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="relative max-w-md mx-auto">
+            <div className="relative flex flex-col sm:flex-row gap-3">
+                <input 
+                  type="email" 
+                  placeholder="Enter your work email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="flex-grow px-6 py-4 rounded-full text-gray-900 placeholder-gray-400 bg-white border border-gray-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-electric-500 focus:border-transparent transition-all"
+                />
+                <button 
+                  type="submit" 
+                  disabled={loading}
+                  className={`px-8 py-4 rounded-full font-bold text-white transition-all duration-300 shadow-lg whitespace-nowrap
+                    ${loading 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-electric-600 to-violet-600 hover:from-electric-500 hover:to-violet-500 hover:shadow-electric-500/30 hover:-translate-y-0.5'
+                    }
+                  `}
+                >
+                  {loading ? (
+                    <span className="flex items-center">
+                        <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
+                        Applying...
+                    </span>
+                  ) : 'Apply Now'}
+                </button>
+            </div>
+          </form>
+        )}
         
-        <div className="mt-12 text-center">
-            <p className="text-sm text-gray-500 font-mono">CURRENT COHORT: <span className="text-gold-500">OPEN</span> • SPOTS REMAINING: <span className="text-white">12/50</span></p>
+        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-400">
+           <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+           Applications open for Batch #1 (US Only)
         </div>
       </div>
     </section>

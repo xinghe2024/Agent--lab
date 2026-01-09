@@ -9,14 +9,14 @@ const MissionSection: React.FC = () => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <h2 className="text-3xl md:text-5xl font-bold mb-10 leading-tight text-white">
-          "Most tools are built <span className="text-gray-500 line-through decoration-gray-600 decoration-2">TO</span> agents. <br />
-          We are building <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-400 to-violet-400">WITH</span> agents."
+          "Most agents hit a glass ceiling on <br />
+          transaction volume. We are building the <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-400 to-violet-400">Hammer</span>."
         </h2>
         
         <div className="w-24 h-1.5 bg-gradient-to-r from-electric-500 to-violet-600 mx-auto mb-10 rounded-full shadow-[0_0_20px_rgba(59,130,246,0.5)]"></div>
         
         <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto">
-          We are currently conducting <span className="text-white font-medium">deep-dive interviews</span> with agents closing 10-20 deals/year. Our goal is to save you 10 hours a week on busy work.
+          We are researching how to automate the entire "Assistant Layer" of your business. Our goal: Help you double your volume <span className="text-white font-medium">without hiring a single human</span>.
         </p>
       </div>
       
