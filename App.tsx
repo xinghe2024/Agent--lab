@@ -6,7 +6,8 @@ import MissionSection from './components/MissionSection';
 import TeamSection from './components/TeamSection';
 import WaitlistSection from './components/WaitlistSection';
 import Footer from './components/Footer';
-import { createPopup } from '@typeform/embed';
+// Fix: Use namespace import to handle CommonJS export compatibility in Vite
+import * as typeformEmbed from '@typeform/embed';
 
 const App: React.FC = () => {
   const waitlistRef = useRef<HTMLDivElement>(null);
@@ -16,8 +17,8 @@ const App: React.FC = () => {
   // Function to open the Typeform modal
   const openTypeform = () => {
     if (!popupRef.current) {
-      // Create the popup only once
-      popupRef.current = createPopup('h2wreFd6', {
+      // Create the popup only once using the namespace import
+      popupRef.current = typeformEmbed.createPopup('h2wreFd6', {
         opacity: 95,
         hideHeaders: true,
         hideFooter: true,
